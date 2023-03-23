@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import security.exercice1.modele.FacadeApplication;
 import security.exercice1.modele.FacadeUtilisateurs;
+import security.exercice1.modele.Question;
 import security.exercice1.modele.Utilisateur;
 import security.exercice1.modele.exception.LoginDejaUtiliseException;
 
@@ -18,6 +20,9 @@ public class ControleurRest {
 
     @Autowired
     FacadeUtilisateurs facadeUtilisateurs;
+    FacadeApplication facadeApplication;
+
+
 
     @PostMapping(value = "/inscription")
     public ResponseEntity<String> inscription(@RequestBody Utilisateur body) throws JsonProcessingException {
@@ -38,5 +43,9 @@ public class ControleurRest {
             return ResponseEntity.internalServerError().body(mapper.writeValueAsString(root));
         }
     }
+
+
+
+
 
 }
